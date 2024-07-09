@@ -1,3 +1,4 @@
-dependecy routine:
+dependency routine:
+Some routines for dem inversion coppied from Solar-Software
 
 
