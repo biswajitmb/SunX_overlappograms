@@ -2,7 +2,7 @@
 
 Package to simulate the overlappograms from emission measure cube 
 
-![alt text](https://github.com/biswajitmb/SunX_overlappograms/blob/main/overlappogram.png)
+![alt text](overlappogram.png)
 
 ## Install
 
