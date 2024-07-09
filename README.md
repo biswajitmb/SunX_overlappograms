@@ -6,7 +6,7 @@ Package to simulate the overlappograms from emission measure cube
 
 ## Install
 
-To install the package and the needed dependencies,
+To install the package and dependencies,
 ```shell
 $ git clone https://github.com/biswajitmb/SunX_overlappograms.git
 $ cd SunX_overlappograms
