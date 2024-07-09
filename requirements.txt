@@ -1,0 +1,6 @@
+scipy
+matplotlib
+astropy
+numpy
+sunpy
+aiapy
