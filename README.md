@@ -104,6 +104,8 @@ m.magixs_fwd(FullSun_img_data,MaGIXS_resp,pix2wvl=None,exposure = exposure,
         pointing_info_file = pointing_info_file,SavePlot=SavePlot, NoFrames = NoFrames)
 ```
 
+![alt text](FWD.png)
+
 Make average data of all frames
 
 ```python
