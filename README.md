@@ -79,7 +79,7 @@ pointing_info_file = None #If provoded then instrument FOV will be read from thi
 plate_scale = 2.8 #detecor plate-scale
 exposure = 1.3 #exposure time
 psf = 17 #in arcsec
-cmap = 'Reds' #color map for plotting
+cmap = 'hot' #color map for plotting
 
 #Outputs
 StoreOutputs = True
