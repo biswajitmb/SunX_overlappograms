@@ -167,7 +167,7 @@ class fwd(object):
 
 
 
-    def magixs_fwd(self, FullSun_img_data, resp_file, pix2wvl = None,resp_unit = None, plate_scale = None,Vigneting_func_file=None,psf=None,exposure = 1, line_label = [],line_wvl = [],cmap='hot',StoreRawDetector = False,RawDetectorDim = [1040,2152],NonActivePix = [50, 8,4], IncludePoisonNoise=False,IncludeDetecorNoise=False,detector_noise = [],phot2elec_conv_file = None,StoreOutputs = False,OutDir=None,namestr='MaGIXS2_',pointing_info_file=None,SavePlot = False,NoFrames=1):
+    def magixs_fwd(self, FullSun_img_data, resp_file, pix2wvl = None,resp_unit = None, plate_scale = None,Vigneting_func_file=None,psf=None,exposure = 1, line_label = [],line_wvl = [],cmap='hot',StoreRawDetector = False,RawDetectorDim = [1040,2152],NonActivePix = [50, 8,4], IncludePoisonNoise=False,IncludeDetecorNoise=False,detector_noise = [],phot2elec_conv_file = None,StoreOutputs = False,OutDir=None,namestr='MaGIXS2_',pointing_info_file=None,SavePlot = False,NoFrames=1,FA_range = None):
         '''
 
         Purpose:
@@ -205,7 +205,8 @@ class fwd(object):
             StoreOutputs : 
             OutDir : 
             namestr : 
-            NoFrames : 
+            NoFrames :
+            FA_range : list [-x,+x] #range of FA to me consider. 
           
         '''
         ref_map = self.ref_map
@@ -251,6 +252,10 @@ class fwd(object):
             mag_FA = hdul[2].data
             mag_resp_logtemp = hdul[1].data
             resp_header = hdul[0].header
+            if FA_range is not None:
+                ind_ = np.where((mag_FA>=FA_range[0]) & (mag_FA<=FA_range[-1]))
+                mag_FA = mag_FA[ind_]
+                mag_resp = mag_resp[:,ind_,:]
         mag_FA = mag_FA.FIELD_ANGLE
         mag_resp_logtemp = mag_resp_logtemp.LOGT
         nFA = len(mag_FA)
