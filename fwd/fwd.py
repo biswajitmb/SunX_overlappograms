@@ -252,11 +252,11 @@ class fwd(object):
             mag_FA = hdul[2].data
             mag_resp_logtemp = hdul[1].data
             resp_header = hdul[0].header
-            if FA_range is not None:
-                ind_ = np.where((mag_FA>=FA_range[0]) & (mag_FA<=FA_range[-1]))
-                mag_FA = mag_FA[ind_]
-                mag_resp = mag_resp[:,ind_,:]
         mag_FA = mag_FA.FIELD_ANGLE
+        if FA_range is not None:
+            ind_ = np.where((mag_FA>=FA_range[0]) & (mag_FA<=FA_range[-1]))[0]
+            mag_FA = mag_FA[ind_]
+            mag_resp = mag_resp[:,ind_,:]
         mag_resp_logtemp = mag_resp_logtemp.LOGT
         nFA = len(mag_FA)
         delta_pix_no = (nFA-1)//2
